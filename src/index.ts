@@ -1,3 +1,4 @@
+import { isAxiosError } from "axios";
 import { createLogger } from "./winston/logger";
 import winston from "winston";
 require("dotenv").config();
@@ -54,6 +55,27 @@ class AutomationLogger {
 	}
 
 	error(message: string, error?: Error) {
+		if (isAxiosError(error)) {
+			this.logger.error(message, {
+				// By including the error's stack, you ensure it gets logged correctly
+				stack: error.stack,
+
+				// Add rich, structured context from the Axios error
+				axios_error: {
+					code: error.code, // e.g., 'ECONNABORTED', 'ERR_BAD_REQUEST'
+					request: {
+						method: error.config?.method,
+						url: error.config?.url,
+					},
+					response: {
+						status: error.response?.status,
+						statusText: error.response?.statusText,
+						data: error.response?.data,
+					},
+				},
+			});
+			return;
+		}
 		this.logger.error(message, error);
 	}
 

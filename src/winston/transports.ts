@@ -1,6 +1,6 @@
 import winston, { transports } from "winston";
 import LokiTransport from "winston-loki"; // Import the Loki transport
-import { loggerFormat, lokiFormat } from "./format";
+import { devFormat, lokiFormat } from "./format";
 
 // Determine the environment
 const isProduction = process.env.NODE_ENV === "production";
@@ -11,7 +11,6 @@ const loggerTransports: winston.transport[] = [];
 if (isProduction) {
 	// For production, log structured JSON to the console
 	loggerTransports.push(new transports.Console({ format: lokiFormat }));
-
 	// --> ADD THIS BLOCK FOR LOKI <--
 	// Send logs to Grafana Loki in production
 	loggerTransports.push(
@@ -36,7 +35,7 @@ if (isProduction) {
 	// --> END OF LOKI BLOCK <--
 } else {
 	// For development, use the pretty, colorized format
-	loggerTransports.push(new transports.Console({ format: loggerFormat }));
+	loggerTransports.push(new transports.Console({ format: devFormat }));
 }
 
 export default loggerTransports;

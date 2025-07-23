@@ -1,8 +1,31 @@
 import logger from "../index";
 
-logger.info("This is an info message from the test index file.", "test-index", {
-	stuff: "test-stuff",
-});
+logger.info(
+	"This is an info message from the test index file.",
+	"test-index",
+	{
+		stuff: "test-stuff",
+		nested: {
+			inner: "test-inner",
+			more: {
+				deeper: "test-deeper",
+			},
+		},
+	},
+	JSON.stringify(
+		{
+			stuff: "test-stuff",
+			nested: {
+				inner: "test-inner",
+				more: {
+					deeper: "test-deeper",
+				},
+			},
+		},
+		null,
+		2
+	)
+);
 
 logger.error(
 	"This is an error message from the test index file.",
