@@ -15,7 +15,7 @@ A robust, structured logging utility for Node.js applications, designed for the 
 ## Installation
 
 ```bash
-npm install @ondc/automation-logger-package
+npm i @ondc/automation-logger
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ npm install @ondc/automation-logger-package
 ### Basic Logging
 
 ```typescript
-import logger from "@ondc/automation-logger-package";
+import logger from "@ondc/automation-logger";
 
 logger.info("Service started", { user: "alice" });
 logger.error("Failed to process request", new Error("Something went wrong"));
@@ -44,7 +44,7 @@ profiler.done({ message: "Finished task", corrId: "abc123" });
 To add a correlation ID to every incoming request:
 
 ```typescript
-import { correlationIdMiddleware } from "@ondc/automation-logger-package/dist/middleware/correclation-middleware";
+import { correlationIdMiddleware } from "@ondc/automation-logger/dist/middleware/correclation-middleware";
 app.use(correlationIdMiddleware);
 ```
 
