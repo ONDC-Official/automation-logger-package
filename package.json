@@ -1,6 +1,6 @@
 {
 	"name": "@ondc/automation-logger",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "logger for protocol workbench ondc",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
