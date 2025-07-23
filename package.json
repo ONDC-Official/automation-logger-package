@@ -1,0 +1,35 @@
+{
+	"name": "automation-logger",
+	"version": "1.0.0",
+	"description": "logger for protocol workbench ondc",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist/**/*"
+	],
+	"scripts": {
+		"build": "npx tsc",
+		"start": "node dist/index.js",
+		"dev": "npx tsc --watch",
+		"clean": "rm -rf dist",
+		"prepare": "npm run clean && npm run build"
+	},
+	"keywords": [
+		"logger",
+		"ondc",
+		"protocol-workbench"
+	],
+	"author": "extedcouD",
+	"license": "MIT",
+	"devDependencies": {
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.0.15",
+		"dotenv": "^17.2.0",
+		"nanoid": "^5.1.5",
+		"winston": "^3.17.0",
+		"winston-loki": "^6.1.3"
+	}
+}

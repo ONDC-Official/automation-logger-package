@@ -1,0 +1,264 @@
+{
+	"participant_id": "ondc.workbench.tech",
+	"keys": [
+		{
+			"uk_id": "27baa06d-d91a-486c-85e5-cc621b787f04",
+			"signing_pub": "GDAeWaIsbDQ7RMYA5ARzpKIs0OVjfas7PTUGmtVa+so=",
+			"encryption_pub": "MCowBQYDK2VuAyEADNHmf74N3yeuisHLvoLdRifO3Y3g98uL9NB6Zl339CY="
+		}
+	],
+	"mappings": [
+		{
+			"id": "mapping-ONDC:TRV11-2.0.0-buyer",
+			"domain": "ONDC:TRV11",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:TRV11-2.0.0-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:TRV11-2.0.0-seller",
+			"domain": "ONDC:TRV11",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:TRV11-2.0.0-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:TRV11-2.0.1-buyer",
+			"domain": "ONDC:TRV11",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:TRV11-2.0.1-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:TRV11-2.0.1-seller",
+			"domain": "ONDC:TRV11",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:TRV11-2.0.1-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:TRV10-2.1.0-buyer",
+			"domain": "ONDC:TRV10",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:TRV10-2.1.0-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:TRV10-2.1.0-seller",
+			"domain": "ONDC:TRV10",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:TRV10-2.1.0-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:TRV14-2.0.0-buyer",
+			"domain": "ONDC:TRV14",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:TRV14-2.0.0-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:TRV14-2.0.0-seller",
+			"domain": "ONDC:TRV14",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:TRV14-2.0.0-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:LOG10-1.2.5-buyer",
+			"domain": "ONDC:LOG10",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:LOG10-1.2.5-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:LOG10-1.2.5-seller",
+			"domain": "ONDC:LOG10",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:LOG10-1.2.5-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:LOG11-1.2.5-buyer",
+			"domain": "ONDC:LOG11",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:LOG11-1.2.5-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:LOG11-1.2.5-seller",
+			"domain": "ONDC:LOG11",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:LOG11-1.2.5-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET10-1.2.5-buyer",
+			"domain": "ONDC:RET10",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:RET10-1.2.5-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET10-1.2.5-seller",
+			"domain": "ONDC:RET10",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:RET10-1.2.5-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET11-1.2.5-buyer",
+			"domain": "ONDC:RET11",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:RET11-1.2.5-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET11-1.2.5-seller",
+			"domain": "ONDC:RET11",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:RET11-1.2.5-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET12-1.2.5-buyer",
+			"domain": "ONDC:RET12",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:RET12-1.2.5-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET12-1.2.5-seller",
+			"domain": "ONDC:RET12",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:RET12-1.2.5-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET13-1.2.5-buyer",
+			"domain": "ONDC:RET13",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:RET13-1.2.5-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET13-1.2.5-seller",
+			"domain": "ONDC:RET13",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:RET13-1.2.5-seller",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET14-1.2.5-buyer",
+			"domain": "ONDC:RET14",
+			"type": "BAP",
+			"uri_id": "uri-ONDC:RET14-1.2.5-buyer",
+			"location_id": "l1"
+		},
+		{
+			"id": "mapping-ONDC:RET14-1.2.5-seller",
+			"domain": "ONDC:RET14",
+			"type": "BPP",
+			"uri_id": "uri-ONDC:RET14-1.2.5-seller",
+			"location_id": "l1"
+		}
+	],
+	"uris": [
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/buyer",
+			"id": "uri-ONDC:TRV11-2.0.0-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.0/seller",
+			"id": "uri-ONDC:TRV11-2.0.0-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.1/buyer",
+			"id": "uri-ONDC:TRV11-2.0.1-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:TRV11/2.0.1/seller",
+			"id": "uri-ONDC:TRV11-2.0.1-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:TRV10/2.1.0/buyer",
+			"id": "uri-ONDC:TRV10-2.1.0-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:TRV10/2.1.0/seller",
+			"id": "uri-ONDC:TRV10-2.1.0-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:TRV14/2.0.0/buyer",
+			"id": "uri-ONDC:TRV14-2.0.0-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:TRV14/2.0.0/seller",
+			"id": "uri-ONDC:TRV14-2.0.0-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:LOG10/1.2.5/buyer",
+			"id": "uri-ONDC:LOG10-1.2.5-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:LOG10/1.2.5/seller",
+			"id": "uri-ONDC:LOG10-1.2.5-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:LOG11/1.2.5/buyer",
+			"id": "uri-ONDC:LOG11-1.2.5-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:LOG11/1.2.5/seller",
+			"id": "uri-ONDC:LOG11-1.2.5-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET10/1.2.5/buyer",
+			"id": "uri-ONDC:RET10-1.2.5-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET10/1.2.5/seller",
+			"id": "uri-ONDC:RET10-1.2.5-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET11/1.2.5/buyer",
+			"id": "uri-ONDC:RET11-1.2.5-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET11/1.2.5/seller",
+			"id": "uri-ONDC:RET11-1.2.5-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET12/1.2.5/buyer",
+			"id": "uri-ONDC:RET12-1.2.5-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET12/1.2.5/seller",
+			"id": "uri-ONDC:RET12-1.2.5-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/buyer",
+			"id": "uri-ONDC:RET13-1.2.5-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET13/1.2.5/seller",
+			"id": "uri-ONDC:RET13-1.2.5-seller"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET14/1.2.5/buyer",
+			"id": "uri-ONDC:RET14-1.2.5-buyer"
+		},
+		{
+			"uri": "https://dev-automation.ondc.org/api-service/ONDC:RET14/1.2.5/seller",
+			"id": "uri-ONDC:RET14-1.2.5-seller"
+		}
+	],
+	"locations": [
+		{
+			"id": "l1",
+			"city": ["*"],
+			"country": ["IND"]
+		}
+	],
+	"request_id": "req-1"
+}
