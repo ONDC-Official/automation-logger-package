@@ -44,8 +44,8 @@ profiler.done({ message: "Finished task", corrId: "abc123" });
 To add a correlation ID to every incoming request:
 
 ```typescript
-import { correlationIdMiddleware } from "@ondc/automation-logger/dist/middleware/correclation-middleware";
-app.use(correlationIdMiddleware);
+import logger from "@ondc/automation-logger";
+app.use(logger.getCorrelationIdMiddleware());
 ```
 
 ## Environment Variables

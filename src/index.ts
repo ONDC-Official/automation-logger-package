@@ -1,6 +1,7 @@
 import { isAxiosError } from "axios";
 import { createLogger } from "./winston/logger";
 import winston from "winston";
+import { correlationIdMiddleware } from "./middleware/correclation-middleware";
 require("dotenv").config();
 class AutomationLogger {
 	private static instance: AutomationLogger | undefined;
@@ -101,6 +102,10 @@ class AutomationLogger {
 
 	startTimer(): winston.Profiler {
 		return this.logger.startTimer();
+	}
+
+	getCorrelationIdMiddleware() {
+		return correlationIdMiddleware;
 	}
 }
 
