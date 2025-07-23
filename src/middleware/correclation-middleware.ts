@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import { nanoid } from "nanoid";
 
 const CORRELATION_ID_HEADER = "X-Request-ID";
 
@@ -23,4 +22,12 @@ export function correlationIdMiddleware(
 	req.correlationId = id;
 	res.set(CORRELATION_ID_HEADER, id);
 	next();
+}
+
+function nanoid(): string {
+	// Simple nanoid implementation for generating unique IDs
+	return (
+		Math.random().toString(36).substring(2, 15) +
+		Math.random().toString(36).substring(2, 15)
+	);
 }

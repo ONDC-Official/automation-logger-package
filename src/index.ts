@@ -55,7 +55,7 @@ class AutomationLogger {
 		this.logger.info(message, ...args);
 	}
 
-	error(message: string, error?: Error) {
+	error(message: string, meta?: any, error?: Error) {
 		if (isAxiosError(error)) {
 			this.logger.error(message, {
 				// By including the error's stack, you ensure it gets logged correctly
@@ -77,7 +77,11 @@ class AutomationLogger {
 			});
 			return;
 		}
-		this.logger.error(message, error);
+		this.logger.error(message, {
+			error: error ? error.message : "No error provided",
+			stack: error ? error.stack : "No stack trace available",
+			...meta,
+		});
 	}
 
 	debug(message: string, ...args: any[]) {
