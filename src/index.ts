@@ -147,5 +147,3 @@ class AutomationLogger {
 }
 
 export default AutomationLogger.getInstance();
-
-test();
