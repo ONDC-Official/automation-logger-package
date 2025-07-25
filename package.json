@@ -1,6 +1,6 @@
 {
 	"name": "@ondc/automation-logger",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "logger for protocol workbench ondc",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
@@ -22,12 +22,14 @@
 	"author": "extedcouD",
 	"license": "MIT",
 	"devDependencies": {
+		"@types/cli-color": "^2.0.6",
 		"typescript": "^5.8.3"
 	},
 	"dependencies": {
 		"@types/express": "^5.0.3",
 		"@types/node": "^24.0.15",
 		"axios": "^1.11.0",
+		"cli-color": "^2.0.4",
 		"dotenv": "^17.2.0",
 		"winston": "^3.17.0",
 		"winston-loki": "^6.1.3"

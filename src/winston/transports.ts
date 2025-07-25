@@ -10,7 +10,7 @@ export default function getLoggerTransports(): winston.transport[] {
 	const loggerTransports: winston.transport[] = [];
 
 	if (isProduction) {
-		loggerTransports.push(new transports.Console({ format: lokiFormat }));
+		loggerTransports.push(new transports.Console({ format: devFormat }));
 		loggerTransports.push(
 			new LokiTransport({
 				// URL of your Grafana Loki instance
@@ -18,7 +18,8 @@ export default function getLoggerTransports(): winston.transport[] {
 				// Crucial: Send logs as JSON for parsing
 				json: true,
 				// Format must also be JSON
-				format: winston.format.json(),
+				// format: winston.format.json(),
+				format: lokiFormat,
 				// Replace the timestamp to ensure Loki accepts it
 				replaceTimestamp: true,
 				onConnectionError: (err) =>

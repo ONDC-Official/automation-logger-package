@@ -23,6 +23,7 @@ export function createLogger({ serviceName }: LoggerConfig) {
 		defaultMeta: {
 			labels: {
 				service: serviceName,
+				category: "automation-framework",
 			},
 		},
 		transports: getLoggerTransports(),

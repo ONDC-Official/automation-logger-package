@@ -1,11 +1,25 @@
+require("dotenv").config();
+import clc from "cli-color";
 import { isAxiosError } from "axios";
 import { createLogger } from "./winston/logger";
 import winston from "winston";
 import { correlationIdMiddleware } from "./middleware/correclation-middleware";
-require("dotenv").config();
+import { test } from "./test";
+import { console } from "inspector";
 class AutomationLogger {
 	private static instance: AutomationLogger | undefined;
 	private logger: winston.Logger;
+	loggingColors: {
+		info: string;
+		error: string;
+		debug: string;
+		warning: string;
+	} = {
+		info: clc.green("[INFO]"),
+		error: clc.red("[ERROR]"),
+		debug: clc.blue("[DEBUG]"),
+		warning: clc.yellow("[WARNING]"),
+	};
 	constructor() {
 		AutomationLogger.instance = this;
 		if (!process.env.SERVICE_NAME) {
@@ -44,18 +58,18 @@ class AutomationLogger {
 		return AutomationLogger.instance;
 	}
 	info(message: string, ...args: any[]) {
-		// change strings to message_{index} format
 		args = args.map((arg, index) => {
 			if (typeof arg === "string") {
 				return { [`message_${index + 2}`]: arg };
 			}
 			return arg;
 		});
-
+		message = this.getFormattedMessage(message, "info", ...args);
 		this.logger.info(message, ...args);
 	}
 
 	error(message: string, meta?: any, error?: Error) {
+		message = this.getFormattedMessage(message, "error", meta);
 		if (isAxiosError(error)) {
 			this.logger.error(message, {
 				// By including the error's stack, you ensure it gets logged correctly
@@ -91,6 +105,7 @@ class AutomationLogger {
 			}
 			return arg;
 		});
+		message = this.getFormattedMessage(message, "debug", ...args);
 		this.logger.debug(message, ...args);
 	}
 
@@ -101,6 +116,7 @@ class AutomationLogger {
 			}
 			return arg;
 		});
+		message = this.getFormattedMessage(message, "warning", ...args);
 		this.logger.warn(message, ...args);
 	}
 
@@ -111,6 +127,25 @@ class AutomationLogger {
 	getCorrelationIdMiddleware() {
 		return correlationIdMiddleware;
 	}
+
+	getFormattedMessage(
+		message: string,
+		level: "info" | "error" | "debug" | "warning",
+		...args: any[]
+	): string {
+		let correlationId =
+			args.find((arg) => typeof arg === "object" && arg.correlationId)
+				?.correlationId || undefined;
+		if (typeof correlationId === "string") {
+			correlationId = clc.magenta(`[C-ID: ${correlationId}]`);
+		}
+		message = `${this.loggingColors[level]} ${
+			correlationId ? `${correlationId}` : ""
+		} ${message}`;
+		return message;
+	}
 }
 
 export default AutomationLogger.getInstance();
+
+test();

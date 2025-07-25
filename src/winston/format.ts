@@ -3,16 +3,8 @@ import "winston-loki";
 import { inspect } from "util";
 
 // Destructure format from winston
-const {
-	combine,
-	timestamp,
-	printf,
-	colorize,
-	errors,
-	splat,
-	json,
-	prettyPrint,
-} = winston.format;
+const { combine, timestamp, printf, colorize, errors, splat, json } =
+	winston.format;
 
 // Define custom colors for log levels
 const customColors = {
@@ -37,7 +29,7 @@ winston.addColors(customColors);
  */
 export const devFormat = combine(
 	colorize({ all: true }),
-	timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
+	timestamp({ format: "YYYY-MM-DD hh:mm:ss.SSS A" }),
 	splat(),
 	errors({ stack: true }),
 	printf((info) => {
@@ -52,17 +44,16 @@ export const devFormat = combine(
 			.join("\n");
 		// Handle errors with stack traces
 		if (stack) {
-			return `----------\n${timestamp} ${level}: ${message}\n${metaString}\n${stack}`;
+			return `----------\n${timestamp} ${message}\n${metaString}\n${stack}`;
 		}
 
-		return `----------\n${timestamp} ${level}: ${message}\n${metaString}`;
+		return `----------\n${timestamp} ${message}\n${metaString}`;
 	})
 );
 
 export const lokiFormat = combine(
-	timestamp(),
+	timestamp({ format: "YYYY-MM-DD hh:mm:ss.SSS A" }),
 	splat(),
 	json(),
-	prettyPrint(),
 	errors({ stack: true })
 );
