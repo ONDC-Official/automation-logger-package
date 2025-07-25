@@ -1,0 +1,53 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+  grpc_listen_port: 9095
+
+ingester:
+  lifecycler:
+    address: 127.0.0.1
+    ring:
+      kvstore:
+        store: inmemory
+      replication_factor: 1
+    final_sleep: 0s
+  chunk_idle_period: 5m
+  max_chunk_age: 5m
+  chunk_target_size: 1048576 # 1MB
+  chunk_retain_period: 1m
+
+schema_configs: # Note the 's' at the end for schema_configs
+  - from: 2020-09-07
+    store: boltdb-shipper
+    object_store: filesystem
+    schema: v11
+    index:
+      prefix: index_
+      period: 24h
+
+compactor:
+  working_directory: /tmp/loki/compactor
+  # 'shared_store' is now implicitly configured via the 'object_store' in schema_configs
+  # No direct 'shared_store' field here.
+
+querier:
+  query_timeout: 30s # 'timeout' moved to 'query_timeout' under querier
+
+ruler:
+  storage:
+    type: local
+    local:
+      directory: /tmp/loki/rules
+  rule_path: /tmp/loki/rules-temp
+  alertmanager_url: http://localhost:9093
+  enable_api: true
+  # 'enable_alerting' is implicitly true if alertmanager_url is set and rules are configured.
+  # No direct 'enable_alerting' field here.
+
+limits_config:
+  # 'enforce_metric_name' is deprecated and removed
+  reject_old_samples: true
+  reject_old_samples_max_age: 168h
+  max_query_lookback: 24h # A common and useful limit
+  volume: true # Enable volume-based limits

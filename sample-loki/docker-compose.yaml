@@ -1,0 +1,30 @@
+services:
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki-network
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    volumes:
+      - ./promtail-config.yaml:/etc/promtail/config.yml
+      - /var/log:/var/log # Mounts your local /var/log directory into the container
+    command: -config.file=/etc/promtail/config.yml
+    networks:
+      - loki-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3110:3000"
+    networks:
+      - loki-network
+networks:
+  loki-network:
+    driver: bridge
