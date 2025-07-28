@@ -4,7 +4,6 @@ import { isAxiosError } from "axios";
 import { createLogger } from "./winston/logger";
 import winston from "winston";
 import { correlationIdMiddleware } from "./middleware/correclation-middleware";
-import { test } from "./test";
 import { console } from "inspector";
 class AutomationLogger {
 	private static instance: AutomationLogger | undefined;
@@ -68,7 +67,7 @@ class AutomationLogger {
 		this.logger.info(message, ...args);
 	}
 
-	error(message: string, meta?: any, error?: Error) {
+	error(message: string, meta?: any, error?: unknown) {
 		message = this.getFormattedMessage(message, "error", meta);
 		if (isAxiosError(error)) {
 			this.logger.error(message, {
@@ -91,9 +90,27 @@ class AutomationLogger {
 			});
 			return;
 		}
+		if (error instanceof Error) {
+			this.logger.error(message, {
+				error: error.message,
+				stack: error.stack,
+				...meta,
+			});
+			return;
+		}
+		if (
+			typeof error === "string" ||
+			typeof error === "number" ||
+			typeof error === "boolean" ||
+			typeof error === "object"
+		) {
+			this.logger.error(message, {
+				error: error,
+				...meta,
+			});
+			return;
+		}
 		this.logger.error(message, {
-			error: error ? error.message : "No error provided",
-			stack: error ? error.stack : "No stack trace available",
 			...meta,
 		});
 	}

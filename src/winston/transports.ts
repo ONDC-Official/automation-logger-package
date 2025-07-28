@@ -10,7 +10,7 @@ export default function getLoggerTransports(): winston.transport[] {
 	const loggerTransports: winston.transport[] = [];
 
 	if (isProduction) {
-		loggerTransports.push(new transports.Console({ format: devFormat }));
+		loggerTransports.push(new transports.Console({ format: lokiFormat }));
 		loggerTransports.push(
 			new LokiTransport({
 				// URL of your Grafana Loki instance
