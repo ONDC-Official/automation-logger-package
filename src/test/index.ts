@@ -53,6 +53,11 @@ export function test() {
 		}
 	);
 
+	logger.info("This is a simple info message with dirty args.", undefined, {
+		test: null,
+		ha: undefined,
+	});
+
 	async function testLogging() {
 		const profiler = logger.startTimer();
 		setTimeout(function () {

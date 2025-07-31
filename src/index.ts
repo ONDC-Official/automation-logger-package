@@ -5,6 +5,7 @@ import { createLogger } from "./winston/logger";
 import winston from "winston";
 import { correlationIdMiddleware } from "./middleware/correclation-middleware";
 import { console } from "inspector";
+import { test } from "./test";
 class AutomationLogger {
 	private static instance: AutomationLogger | undefined;
 	private logger: winston.Logger;
@@ -151,7 +152,9 @@ class AutomationLogger {
 		...args: any[]
 	): string {
 		let correlationId =
-			args.find((arg) => typeof arg === "object" && arg.correlationId)
+			args
+				.filter((a) => a)
+				.find((arg) => typeof arg === "object" && arg?.correlationId)
 				?.correlationId || undefined;
 		if (typeof correlationId === "string") {
 			correlationId = clc.magenta(`[C-ID: ${correlationId}]`);
@@ -164,3 +167,5 @@ class AutomationLogger {
 }
 
 export default AutomationLogger.getInstance();
+
+// test();
